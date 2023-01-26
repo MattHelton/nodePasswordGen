@@ -1,6 +1,8 @@
+const { getPackedSettings } = require("http2")
 const inquirer = require("inquirer")
 
 var possibleCharacters = ``
+var finalPassword = ``
 var lowerCase = `abcdefghijklmnopqrstuvwxyz`
 var upperCase = `ABCDEFGHIJKLMNOPQRSTUVWXYZ`
 var specialChars = `!@#$%^&*()_+=-?/><{}[]`
@@ -40,7 +42,13 @@ inquirer.prompt([
     if(answers.hasSpecials){
         possibleCharacters += specialChars
     }
-    return possibleCharacters
+
+    for(let i =0; i < passwordLength; i++){
+        let ranNum = Math.floor(Math.random() * (possibleCharacters.length + 1))
+        let ranChar = possibleCharacters.charAt(ranNum)
+        finalPassword += ranChar
+    }
+    return finalPassword
 }).then((data)=> {
-    console.log("posi char: ", possibleCharacters)
+    console.log("password: ", data)
 })
