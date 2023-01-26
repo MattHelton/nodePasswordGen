@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/MattHelton/nodePasswordGen/issues"
   },
-  "homepage": "https://github.com/MattHelton/nodePasswordGen#readme"
+  "homepage": "https://github.com/MattHelton/nodePasswordGen#readme",
+  "dependencies": {
+    "inquirer": "^8.2.5"
+  }
 }
