@@ -12,7 +12,14 @@ inquirer.prompt([
     {
         message: 'How long should the password be?',
         name: `passwordLength`,
-        type: `input`
+        type: `input`,
+        validate(answer) {
+            answer = parseInt(answer)
+        if (answer < 8 || answer > 128 ) {
+            return "Please provide a number between 8 and 128"
+        }
+        return true
+    }
     },
     {
         message: `Would you like numbers in your password?`,
